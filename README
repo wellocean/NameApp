@@ -1,0 +1,19 @@
+
+11/17/2013
+  This is a sample solution for "Name app V2" EC assignment for the event handling lab.
+
+"Name app V2:  Now change the first name input tag to include a value change listener.  
+The listener should be activated when the user tabs out of the Name field, i.e., onblur.  
+If your value change listener finds the first name in the database of names, then it should 
+set the last name of the bean field using the name from the database.  Does this work?  
+Try making the last name field be an output rather than an input.  Does it work now?  
+Why might there be a difference?  Try having both the output and input fields for the last name."
+(See comments in the PersonBean for answers to the questions.)
+
+18 May 2012kl
+
+Hint:  try using this in fillLast instead of setLast(enteredFirst);
+
+        UIComponent firstUIInput = e.getComponent();
+        UIInput lastUIInput = (UIInput) firstUIInput.findComponent("lastName");
+        lastUIInput.setValue(enteredFirst);

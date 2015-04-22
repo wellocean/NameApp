@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Value Change Setter</title>
+        <!-- <script>
+            window.onload = function() {
+                document.getElementById('formId:first').focus();
+            }
+        </script> -->
+
+    </h:head>
+    <h:body>
+        <h:form id="formId">
+
+            First name:  <h:inputText id="first" value="#{personBn.first}"
+                                      valueChangeListener="#{personBn.fillLast}"
+                                      onblur="submit();"/> 
+
+            <p/>
+            Last name output:  <h:outputText   value="#{personBn.last}" />
+            <br/>
+            Last Name input:  <h:inputText   value="#{personBn.last}" />
+
+            <br/>
+            <h:commandButton value="submit" action="#{personBn.addToList}"></h:commandButton>
+        </h:form>
+        <h:dataTable var="pers"  value="#{personBn.nameList}">
+            <f:facet name="caption">Person List</f:facet>
+
+            <h:column> 
+                <f:facet name="header">First </f:facet>
+                    #{pers.first}
+            </h:column>
+
+            <h:column> 
+                <f:facet name="header">First </f:facet>
+                    #{pers.last}
+            </h:column>
+
+        </h:dataTable>
+        <h:messages></h:messages>
+    </h:body>
+</html>
+
